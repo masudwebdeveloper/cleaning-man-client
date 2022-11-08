@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import ServicesItems from './ServicesItems';
 
 const Services = () => {
@@ -11,7 +12,10 @@ const Services = () => {
       fetch(url)
          .then(res => res.json())
          .then(data => setServices(data.services))
-         .catch(err => console.error(err))
+         .catch(err => {
+            console.error(err);
+            toast.error(err , {autoClose: 2000})
+         })
    }, [size])
    return (
       <div className=' container mx-auto my-10'>
@@ -20,7 +24,7 @@ const Services = () => {
             <hr />
             <p></p>
          </div>
-         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
+         <div className='grid grid-cols-1 lg:grid-cols-3 mx-auto justify-center gap-5'>
             {
                services.map(service => <ServicesItems key={service._id} service={service}></ServicesItems>)
             }

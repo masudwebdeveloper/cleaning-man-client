@@ -11,7 +11,7 @@ const ChooseUs = () => {
                <div className='divider border-1 mb-8 w-2/5 mx-auto'><GoPrimitiveDot className='text-gray-500'></GoPrimitiveDot></div>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
-               <div className='text-right mt-10'>
+               <div className='text-center lg:text-right mt-10'>
                   <div className='mb-10'>
                      <h2 className='text-xl font-bold text-gray-600'>We Are Experts</h2>
                      <p className='text-md font-medium text-gray-500'>and dominate the industry in scale and scope with an adaptable, extensive network that consistently delivers exceptional results.</p>
@@ -25,8 +25,8 @@ const ChooseUs = () => {
                <div className='mx-auto'>
                   <img src={image} alt="" />
                </div>
-               <div>
-                  <div className='mb-10 mt-10'>
+               <div className='text-center lg:text-left mt-10'>
+                  <div className='mb-10'>
                      <h2 className='text-xl font-bold text-gray-600'>We Are Complete</h2>
                      <p className='text-md font-medium text-gray-500'>and seek to provide exceptional service and engage in proactive behavior.</p>
                   </div>

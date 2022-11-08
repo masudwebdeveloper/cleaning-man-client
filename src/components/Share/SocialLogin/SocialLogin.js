@@ -1,15 +1,22 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
+import { authJwt } from '../../../api/ProviderJwt/ProviderJwt';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SocialLogin = () => {
    const { googleSignIn } = useContext(AuthContext);
+
    const handleGoogleSignIn = () => {
       googleSignIn()
          .then(result => {
             const user = result.user;
-            console.log(user);
+            toast.success('Account Create is Successfull');
+            authJwt(user);
          })
-      .catch(err => console.error(err))
+         .catch(err => {
+            console.error(err)
+            toast.error(err, { autoClose: 2000 })
+         })
    }
    return (
       <div className='text-center mt-5'>

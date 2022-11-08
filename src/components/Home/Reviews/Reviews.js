@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { IoMdLogOut } from 'react-icons/io';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import ReviewsItems from './ReviewsItems';
 
@@ -26,14 +25,9 @@ const Reviews = () => {
          .catch(err => {
             console.error(err);
          })
-   }, [user?.email])
+   }, [user?.email, logOut])
    return (
       <div className='container mx-auto'>
-         {/* {
-            reviews.sort((a, b) => {
-               return a.date - b.date;
-           })
-         } */}
          <div className='text-center'>
             {
                reviews.length > 0 ?

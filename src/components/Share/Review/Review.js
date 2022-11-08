@@ -4,7 +4,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import {RiAddFill} from 'react-icons/ri'
+import { RiAddFill } from 'react-icons/ri'
+import { toast } from 'react-toastify';
 
 
 const Review = () => {
@@ -41,11 +42,14 @@ const Review = () => {
          .then(res => res.json())
          .then(data => {
             if (data.acknowledged) {
-               alert('added review Successfull')
+               toast.success('added review successfull', { autoClose: 2000 })
                form.reset();
             }
-            console.log(data);
 
+         })
+         .catch(err => {
+            console.error(err);
+            toast.error(err, { autoClose: 2000 })
          })
    }
    return (
@@ -65,11 +69,11 @@ const Review = () => {
                </div>
                <form onSubmit={handleSubmit}>
                   <div className='flex mb-5'>
-                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered w-full max-w-xs mr-5"  required/>
-                     <input type="text" name='email' defaultValue={user?.email} className="input input-bordered w-full max-w-xs" readOnly/>
+                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered w-full max-w-xs mr-5" required />
+                     <input type="text" name='email' defaultValue={user?.email} className="input input-bordered w-full max-w-xs" readOnly />
                   </div>
 
-                  <textarea name='message' className="textarea mb-5 textarea-bordered w-1/2" placeholder={`what's on you mind, ${user?.displayName}`}></textarea> <br  required/>
+                  <textarea name='message' className="textarea mb-5 textarea-bordered w-1/2" placeholder={`what's on you mind, ${user?.displayName}`}></textarea> <br required />
                   <button className="btn btn-success mb-10 mr-10 hover:bg-green-600 hover:text-white duration-500"><RiAddFill className='text-xl mr-2'></RiAddFill>Add Rivew</button>
                   <Link to='/home' className="btn btn-success mb-10 hover:bg-green-600 hover:text-white duration-500"><FaHome className='inline mr-2'></FaHome>Back To Home</Link>
                </form>
@@ -108,7 +112,7 @@ const Review = () => {
                   </div>
                </div>
 
-               <div className='flex bg-gray-200 p-5 justify-center pt-8'>
+               <div className='flex flex-col lg:flex-row items-center bg-gray-200 p-5 justify-center pt-8'>
                   <div className='flex mb-5'>
                      <p className='mr-2 mt-2'><FaPhone className='text-success'></FaPhone></p>
                      <div>

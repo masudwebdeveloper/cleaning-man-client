@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaEdit, FaStar, FaTrash } from 'react-icons/fa';
 import { TbDots } from 'react-icons/tb';
+import { toast } from 'react-toastify';
 
 const ReviewsItems = ({ review,reviews, setReviews }) => {
    const { _id, title, picture, clientName, rating, price, message, date } = review;
@@ -13,7 +14,7 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
             .then(res => res.json())
             .then(data => {
                if (data.acknowledged) {
-                  alert('Deleted Successfully');
+                  toast.success('deleted succesfully')
                   const remaining = reviews.filter(review => review._id !== id);
                   setReviews(remaining);
                }
@@ -22,6 +23,7 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
             })
             .catch(err => {
                console.error(err);
+               toast.error(err, {autoClose: 2000})
             })
       }
    }

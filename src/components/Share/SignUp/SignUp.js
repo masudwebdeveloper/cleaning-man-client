@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import image1 from '../../../assets/images/signup.jpg'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
-   const { createUser,googleSignIn } = useContext(AuthContext);
+   const { createUser } = useContext(AuthContext);
+   
    const handleSignUp = event => {
       event.preventDefault();
       const form = event.target;
@@ -16,13 +18,15 @@ const SignUp = () => {
       createUser(email, password)
          .then(result => {
             const user = result.user;
+            toast.success('Account Create is successfull', {autoClose: 2000})
             form.reset();
-            console.log(user);
          })
-      .catch(err => console.error(err))
+         .catch(err => {
+            console.error(err)
+            toast.error(err, {autoClose: 2000})
+         })
    }
 
-   
    return (
       <div className="hero my-10">
          <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-20 justify-between">

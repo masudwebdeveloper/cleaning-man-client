@@ -24,9 +24,9 @@ const Hero = () => {
                </div>
             </div>
          </div>
-         <div className='flex bg-emerald-400 p-5 justify-center pt-8'>
-            <h1 className='text-4xl text-white'>Get started with your <span className='font-bold'>free estimate</span> </h1>
-            <div className='flex mb-5 ml-5'>
+         <div className='flex flex-col lg:flex-row items-center bg-emerald-400 p-5 justify-center pt-8'>
+            <h1 className='text-4xl text-white text-center'>Get started with your <span className='font-bold'>free estimate</span> </h1>
+            <div className='flex my-5 lg:mb-5 ml-5'>
                <div>
                   <button className="btn rounded-full bg-slate-100  hover:text-white text-black font-semibold duration-500 uppercase ml-5"> <IoMdNotificationsOutline className='mr-1 font-normal text-xl'></IoMdNotificationsOutline> get free estimate</button>
                </div>

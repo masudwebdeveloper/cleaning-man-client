@@ -21,9 +21,7 @@ const Login = () => {
          .then(result => {
             const user = result.user
             form.reset();
-            // if (user) {
-            //    navigate(from, { replace: true });
-            // }
+           
             const userEmail = {
                email: user?.email,
             }
@@ -40,7 +38,7 @@ const Login = () => {
                   localStorage.setItem('jwt-token', data.token)
                   navigate(from, {replace: true})
                })
-            .catch(err => console.error(err))
+            .then(err => console.error(err))
          })
          .catch(err => {
             console.error(err);
