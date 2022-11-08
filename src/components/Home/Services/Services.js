@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ServicesItems from './ServicesItems';
 
 const Services = () => {
@@ -28,7 +29,7 @@ const Services = () => {
          <div className='mt-10 text-center'>
             {
                services.length === 3 ?
-                  <button className='btn btn-secondary' onClick={() => setSize(size + 3)}>Show More Services</button>
+                  <Link to='/services' className='btn btn-secondary' onClick={() => setSize(size + 3)}>Show More Services</Link>
                   :
                   <button className='btn btn-secondary' onClick={() => setSize(size - 3)}>Show less Services</button>
             }

@@ -12,7 +12,8 @@ const Header = () => {
          .catch(err => console.error(err))
    }
    return (
-      <div className="navbar bg-gray-200 sticky top-0 z-50 container mx-auto">
+      <div className='bg-gray-200  sticky top-0 z-50 mb-1' >
+         <div className="navbar container mx-auto">
          <div className="navbar-start">
             <div className="dropdown">
                <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -68,6 +69,7 @@ const Header = () => {
                </li>
             </ul>
          </div>
+      </div>
       </div>
    );
 };
