@@ -30,11 +30,11 @@ const Header = () => {
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
                <li><Link className='text-xl font-semibold mr-5' to='/home'>Home</Link></li>
+               <li><Link className='text-xl font-semibold mr-5' to='/services'>Services</Link></li>
                {
                   user?.uid ?
                      <>
-                        <li><Link className='text-xl font-semibold mr-5' to='/services'>Services</Link></li>
-                        <li><Link className='text-xl font-semibold mr-5' to='/reviews'>Reviews</Link></li>
+                        <li><Link className='text-xl font-semibold mr-5' to='/reviews'>My Reviews</Link></li>
                      </>
 
                      :

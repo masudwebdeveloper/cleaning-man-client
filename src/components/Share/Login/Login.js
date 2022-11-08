@@ -1,11 +1,16 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image1 from '../../../assets/images/login.webp'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
    const { login } = useContext(AuthContext);
+   const location = useLocation();
+   const navigate = useNavigate();
+
+   const from = location.state?.from?.pathname || '/';
+
    const handleSignIn = (event) => {
       event.preventDefault();
       const form = event.target;
@@ -16,7 +21,26 @@ const Login = () => {
          .then(result => {
             const user = result.user
             form.reset();
-            console.log(user);
+            // if (user) {
+            //    navigate(from, { replace: true });
+            // }
+            const userEmail = {
+               email: user?.email,
+            }
+
+            fetch('http://localhost:5000/jwt', {
+               method: 'POST',
+               headers: {
+                  'content-type': 'application/json'
+               },
+               body: JSON.stringify(userEmail)
+            })
+               .then(res => res.json())
+               .then(data => {
+                  localStorage.setItem('jwt-token', data.token)
+                  navigate(from, {replace: true})
+               })
+            .catch(err => console.error(err))
          })
          .catch(err => {
             console.error(err);

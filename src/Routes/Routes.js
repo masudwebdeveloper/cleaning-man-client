@@ -6,6 +6,7 @@ import Main from "../components/Layout/Main";
 import Login from "../components/Share/Login/Login";
 import Review from "../components/Share/Review/Review";
 import SignUp from "../components/Share/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
    {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
          },
          {
             path: '/reviews',
-            element: <Reviews></Reviews>
+            element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
          }
       ]
    }
