@@ -16,6 +16,7 @@ const SignUp = () => {
       createUser(email, password)
          .then(result => {
             const user = result.user;
+            form.reset();
             console.log(user);
          })
       .catch(err => console.error(err))

@@ -29,7 +29,7 @@ const Slider = () => {
       },
    ]
    return (
-      <div className="carousel w-full h-[500px] container mx-auto">
+      <div className="carousel w-full h-[500px] container mx-auto mt-">
          {
             sliderData.map(slider => <SliderItem key={slider.id} slider={slider}></SliderItem>)
          }

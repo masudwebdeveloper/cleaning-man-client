@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaCheck, FaClock, FaPhone, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { IoMdNotificationsOutline } from 'react-icons/io';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 
 const Review = () => {
    const service = useLoaderData();
+   const { user } = useContext(AuthContext);
    const { _id, title, picture, description, pirce, rating, name } = service;
+   const email = user?.email || 'unregistered';
 
    const handleReview = () => {
       const review = {
@@ -17,6 +20,7 @@ const Review = () => {
          price: pirce,
          name,
          rating,
+         email,
          date: Date.now()
       }
       fetch('http://localhost:5000/reviews', {
@@ -28,6 +32,9 @@ const Review = () => {
       })
          .then(res => res.json())
          .then(data => {
+            if (data.acknowledged) {
+               alert('added review Successfull')
+            }
             console.log(data);
             
       })
