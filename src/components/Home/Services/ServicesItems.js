@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ServicesItems = ({ service }) => {
    const [active, setActive] = useState(true);
-   const { title, picture, price, description, rating } = service;
+   const {_id, title, picture, price, description, rating } = service;
    return (
       <div className="card w-96 bg-base-100 shadow-xl">
          <figure className="px-10 pt-10">
@@ -16,7 +17,7 @@ const ServicesItems = ({ service }) => {
             }
 
             <div className="card-actions">
-               <button className="btn btn-secondary">Review</button>
+               <Link to={`/review/${_id}`}  className="btn btn-secondary">Review</Link>
             </div>
          </div>
       </div>

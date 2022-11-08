@@ -3,6 +3,7 @@ import Home from "../components/Home/Home/Home";
 import Services from "../components/Home/Services/Services";
 import Main from "../components/Layout/Main";
 import Login from "../components/Share/Login/Login";
+import Review from "../components/Share/Review/Review";
 import SignUp from "../components/Share/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
          {
             path: '/signup',
             element: <SignUp></SignUp>
+         },
+         {
+            path: '/review/:id',
+            element: <Review></Review>,
+            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
          }
       ]
    }
