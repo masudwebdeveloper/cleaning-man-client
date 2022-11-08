@@ -3,7 +3,7 @@ import { FaEdit, FaStar, FaTrash } from 'react-icons/fa';
 import { TbDots } from 'react-icons/tb';
 
 const ReviewsItems = ({ review,reviews, setReviews }) => {
-   const { _id, title, picture, name, rating, price, date } = review;
+   const { _id, title, picture, clientName, rating, price, message, date } = review;
    const handleDelete = (id) => {
       const proceed = window.confirm('Are you sure want to delete?');
       if (proceed) {
@@ -41,9 +41,10 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
          <div className='flex'>
             <img className='w-48 mr-5' src={picture} alt="" />
             <div>
-               <h3 className='text-sm font-medium'>Name: {name}</h3>
+               <h3 className='text-sm font-medium'>Name: {clientName}</h3>
                <h3 className='text-sm font-medium'>Rating: {rating} <FaStar className='inline mb-1 text-warning'></FaStar></h3>
                <h3 className='text-sm font-medium'>Price: {price}$</h3>
+               <h3 className='text-sm font-medium'>message: {message}</h3>
 
             </div>
          </div>
