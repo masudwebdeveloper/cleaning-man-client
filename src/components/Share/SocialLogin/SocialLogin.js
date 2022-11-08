@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SocialLogin = () => {
+   const { googleSignIn } = useContext(AuthContext);
    const handleGoogleSignIn = () => {
-      
+      googleSignIn()
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+         })
+      .catch(err => console.error(err))
    }
    return (
       <div className='text-center mt-5'>

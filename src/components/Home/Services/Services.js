@@ -5,8 +5,6 @@ const Services = () => {
    const [services, setServices] = useState([]);
    const [size, setSize] = useState(3);
 
-   console.log(services);
-
    useEffect(() => {
       const url = `http://localhost:5000/services?size=${size}`;
       fetch(url)

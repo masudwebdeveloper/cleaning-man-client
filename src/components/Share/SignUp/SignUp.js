@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import image1 from '../../../assets/images/signup.jpg'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+   const { createUser,googleSignIn } = useContext(AuthContext);
    const handleSignUp = event => {
       event.preventDefault();
+      const form = event.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log(name, email, password);
+      createUser(email, password)
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+         })
+      .catch(err => console.error(err))
    }
+
+   
    return (
-      <div className="hero">
+      <div className="hero my-10">
          <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-20 justify-between">
             <div className="text-center">
                <img src={image1} alt="" />
