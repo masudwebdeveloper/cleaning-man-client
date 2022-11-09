@@ -11,7 +11,7 @@ const Reviews = () => {
       fetch(url, {
          headers: {
             authorization: `Bearer ${localStorage.getItem('jwt-token')}`
-         } 
+         }
       })
          .then(res => {
             if (res.status === 401 || res.status === 403) {
@@ -20,6 +20,7 @@ const Reviews = () => {
             return res.json()
          })
          .then(data => {
+            data.sort((a,b)=> b.date - a.date)
             setReviews(data)
          })
          .catch(err => {
@@ -40,6 +41,7 @@ const Reviews = () => {
                   </h1>
             }
          </div>
+
          <div className=' grid grid-cols-1 lg:grid-cols-3 gap-10'>
             {
                reviews.map(review => <ReviewsItems

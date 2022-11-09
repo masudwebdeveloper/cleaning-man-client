@@ -3,6 +3,7 @@ import Home from "../components/Home/Home/Home";
 import Reviews from "../components/Home/Reviews/Reviews";
 import Services from "../components/Home/Services/Services";
 import Main from "../components/Layout/Main";
+import Blogs from "../components/Others/Blogs/Blogs";
 import Login from "../components/Share/Login/Login";
 import Review from "../components/Share/Review/Review";
 import SignUp from "../components/Share/SignUp/SignUp";
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
          },
          {
             path: '/services',
-            element: <Services></Services>
+            element: <PrivateRoute><Services></Services></PrivateRoute>
          },
          {
             path: '/login',
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
          {
             path: '/reviews',
             element: <PrivateRoute><Reviews></Reviews></PrivateRoute>
+         },
+         {
+            path: '/blogs',
+            element: <Blogs></Blogs>
          }
       ]
    }

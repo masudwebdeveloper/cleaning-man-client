@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { authJwt } from '../../../api/ProviderJwt/ProviderJwt';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const SocialLogin = () => {
    const { googleSignIn } = useContext(AuthContext);
+   const location = useLocation();
+   const navigate = useNavigate();
+
+   const from = location.state?.from?.pathname || '/';
 
    const handleGoogleSignIn = () => {
       googleSignIn()
@@ -12,6 +17,7 @@ const SocialLogin = () => {
             const user = result.user;
             toast.success('Account Create is Successfull');
             authJwt(user);
+            navigate(from, {replace: true})
          })
          .catch(err => {
             console.error(err)

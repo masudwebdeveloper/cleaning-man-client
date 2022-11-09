@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServicesItems = ({ service }) => {
    const [active, setActive] = useState(true);
    const {_id, title, picture, pirce, description, rating } = service;
    return (
       <div className="card w-96 bg-base-100 shadow-xl">
+         
          <figure className="px-10 pt-10">
             <img src={picture} alt="Shoes" className="rounded-xl" />
          </figure>
