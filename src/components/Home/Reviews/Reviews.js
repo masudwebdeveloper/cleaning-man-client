@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import ReviewsItems from './ReviewsItems';
 
 const Reviews = () => {
    const [reviews, setReviews] = useState([]);
    const { user, logOut } = useContext(AuthContext);
+   useTitle('My Reviews')
 
    useEffect(() => {
       const url = `http://localhost:5000/reviews?email=${user?.email}`;

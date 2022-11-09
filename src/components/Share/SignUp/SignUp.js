@@ -4,10 +4,11 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import image1 from '../../../assets/images/signup.jpg'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
    const { createUser } = useContext(AuthContext);
-   
+   useTitle('SignUp')
    const handleSignUp = event => {
       event.preventDefault();
       const form = event.target;

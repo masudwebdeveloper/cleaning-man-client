@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../../hooks/useTitle';
 import ServicesItems from './ServicesItems';
 
 const Services = () => {
    const [services, setServices] = useState([]);
    const [size, setSize] = useState(3);
-
+   useTitle('Services')
    useEffect(() => {
       const url = `http://localhost:5000/services?size=${size}`;
       fetch(url)

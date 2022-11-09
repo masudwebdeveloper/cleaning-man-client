@@ -6,6 +6,7 @@ import { IoMdNotificationsOutline } from 'react-icons/io';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { RiAddFill } from 'react-icons/ri'
 import { toast } from 'react-toastify';
+import useTitle from '../../../hooks/useTitle';
 
 
 const Review = () => {
@@ -13,6 +14,7 @@ const Review = () => {
    const { user } = useContext(AuthContext);
    const { _id, title, picture, description, pirce, rating, name } = service;
    const email = user?.email || 'unregistered';
+   useTitle('Review')
 
    const handleSubmit = (event) => {
       event.preventDefault();
