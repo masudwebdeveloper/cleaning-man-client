@@ -8,6 +8,7 @@ const Services = () => {
    const [services, setServices] = useState([]);
    const [size, setSize] = useState(3);
    useTitle('Services')
+
    useEffect(() => {
       const url = `http://localhost:5000/services?size=${size}`;
       fetch(url)
@@ -19,7 +20,7 @@ const Services = () => {
          })
    }, [size])
    return (
-      <div className=' container mx-auto my-10'>
+      <div className='container mx-auto my-10'>
          <div className='w-1/2 mx-auto text-center'>
             <h1 className='text-5xl font-bold mb-10 my-20'>Our Services</h1>
             <hr />

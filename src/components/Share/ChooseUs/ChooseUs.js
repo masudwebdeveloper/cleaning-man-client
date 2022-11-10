@@ -6,12 +6,12 @@ const ChooseUs = () => {
    return (
       <div className='bg-gray-100'>
          <div className='container mx-auto mb-1 mt-32 py-10'>
-            <div className='text-center mb-10'>
+            <div className='text-center mb-10' data-aos="fade-down" data-aos-duration="2000">
                <h1 className='text-5xl text-gray-500 font-semibold mb-8'>Why Our Customers Choose Us?</h1>
                <div className='divider border-1 mb-8 w-2/5 mx-auto'><GoPrimitiveDot className='text-gray-500'></GoPrimitiveDot></div>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
-               <div className='text-center lg:text-right mt-10'>
+               <div className='text-center lg:text-right mt-10' data-aos="fade-right" data-aos-duration="2000">
                   <div className='mb-10'>
                      <h2 className='text-xl font-bold text-gray-600'>We Are Experts</h2>
                      <p className='text-md font-medium text-gray-500'>and dominate the industry in scale and scope with an adaptable, extensive network that consistently delivers exceptional results.</p>
@@ -22,10 +22,10 @@ const ChooseUs = () => {
                   </div>
 
                </div>
-               <div className='mx-auto'>
+               <div className='mx-auto' data-aos="fade-down" data-aos-duration="2000">
                   <img src={image} alt="" />
                </div>
-               <div className='text-center lg:text-left mt-10'>
+               <div className='text-center lg:text-left mt-10' data-aos="fade-left" data-aos-duration="2000">
                   <div className='mb-10'>
                      <h2 className='text-xl font-bold text-gray-600'>We Are Complete</h2>
                      <p className='text-md font-medium text-gray-500'>and seek to provide exceptional service and engage in proactive behavior.</p>

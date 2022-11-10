@@ -11,10 +11,10 @@ const SliderItem = ({ slider }) => {
             <a href={`#slide${slider.prev}`} className="btn btn-circle">❮</a>
             <a href={`#slide${slider.next}`} className="btn btn-circle">❯</a>
          </div>
-         <div className="absolute top-[150px] left-[450px] text-center">
-            <h1 className='text-5xl font-bold text-white'>Eco Friendly <br /> Cleaning Services</h1>
+         <div className="absolute top-[50px] lg:top-[150px] left-[90px] lg:left-[450px] text-center" data-aos="zoom-in" data-aos-duration="2000">
+            <h1 className='text-3xl lg:text-5xl font-bold text-white'>Eco Friendly <br /> Cleaning Services</h1>
          </div>
-         <div className="absolute top-[275px] left-[575px]">
+         <div className="absolute top-[135px] lg:top-[275px] left-[140px] lg:left-[575px]">
             <button className="btn btn-secondary">More Explore</button>
          </div>
       </div>

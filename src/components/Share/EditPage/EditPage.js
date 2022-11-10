@@ -61,8 +61,8 @@ const EditPage = () => {
                </div>
             </div>
             <form className='flex flex-col w-1/2 mx-auto' onSubmit={handleUpdate}>
-               <input onChange={handleChange} type="text" name='clientName' placeholder="Your Name..." className="input input-bordered w-full my-5 text-lg font-semibold" defaultValue={`Viewer Name: ${storedUser.clientName}`} />
-               <textarea onChange={handleChange} name='message' className="textarea textarea-bordered mb-5 text-lg font-semibold" placeholder="What's Your mind" defaultValue={`Message: ${storedUser.message}`}></textarea>
+               <input onChange={handleChange} type="text" name='clientName' placeholder="Your Name..." className="input input-bordered w-full my-5 text-lg font-semibold" defaultValue={`${storedUser.clientName}`} />
+               <textarea onChange={handleChange} name='message' className="textarea textarea-bordered mb-5 text-lg font-semibold" placeholder="What's Your mind" defaultValue={`${storedUser.message}`}></textarea>
                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg mb-5">Save</button>
             </form>
          </div>
