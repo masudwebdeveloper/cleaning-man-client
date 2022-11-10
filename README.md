@@ -2,7 +2,7 @@
 
 This is Live Side Link [Clean East]().
 
-This project was Tailwind, daisyUi with [Create React App](https://github.com/facebook/create-react-app).
+This project was Tailwind, daisyUi with [Create React App](https://cleaning-man.web.app/).
 
 ## My side Features
 * 👌My side easy to use
