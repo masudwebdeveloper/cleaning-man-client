@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa'
 
@@ -37,14 +37,14 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal p-0">
-                  <li><Link className='text-xl font-semibold mr-5' to='/home'>Home</Link></li>
-                  <li><Link className='text-xl font-semibold mr-5' to='/blogs'>Blogs</Link></li>
-                  <li><Link className='text-xl font-semibold mr-5' to='/services'>Services</Link></li>
-                  <li><Link className='text-xl font-semibold mr-5' to='/allreviews'>Reviews</Link></li>
+                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/home'>Home</NavLink></li>
+                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/blogs'>Blogs</NavLink></li>
+                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/services'>Services</NavLink></li>
+                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/allreviews'>Reviews</NavLink></li>
                   {
                      user?.uid ?
                         <>
-                           <li><Link className='text-xl font-semibold mr-5' to='/reviews'>My Reviews</Link></li>
+                           <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/reviews'>My Reviews</NavLink></li>
                         </>
 
                         :
