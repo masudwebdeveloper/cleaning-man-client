@@ -7,6 +7,7 @@ import Services from '../Services/Services';
 import img1 from '../../../assets/images/cleaner man.jpg'
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import SliderItem from '../../Others/Slider/SliderItem';
+import ImageGallary from '../../Share/Gallary/ImageGallary';
 
 const Home = () => {
    useTitle('Home')
@@ -76,6 +77,7 @@ const Home = () => {
          <Services></Services>
          <Works></Works>
          <ChooseUs></ChooseUs>
+         <ImageGallary></ImageGallary>
       </div>
    );
 };
