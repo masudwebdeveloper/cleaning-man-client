@@ -6,10 +6,10 @@ const AllReviews = () => {
    const [allreviews, setAllReviews] = useState([]);
 
    useEffect(() => {
-      fetch('http://localhost:5000/allreviews')
+      fetch('https://cleaning-man-server.vercel.app/allreviews')
          .then(res => res.json())
          .then(data => {
-            data.sort((a,b)=> b.date - a.date)
+            data.sort((a, b) => b.date - a.date)
             setAllReviews(data)
          })
          .catch(err => {

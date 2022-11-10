@@ -3,7 +3,7 @@ export const authJwt = (user) => {
       email: user.email,
    }
 
-   fetch('http://localhost:5000/jwt', {
+   fetch('https://cleaning-man-server.vercel.app/jwt', {
       method: 'POST',
       headers: {
          'content-type': 'application/json'

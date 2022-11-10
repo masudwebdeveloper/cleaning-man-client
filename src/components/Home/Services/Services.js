@@ -10,13 +10,13 @@ const Services = () => {
    useTitle('Services')
 
    useEffect(() => {
-      const url = `http://localhost:5000/services?size=${size}`;
+      const url = `https://cleaning-man-server.vercel.app/services?size=${size}`;
       fetch(url)
          .then(res => res.json())
          .then(data => setServices(data.services))
          .catch(err => {
             console.error(err);
-            toast.error(err , {autoClose: 2000})
+            toast.error(err, { autoClose: 2000 })
          })
    }, [size])
    return (

@@ -23,12 +23,12 @@ const Login = () => {
          .then(result => {
             const user = result.user
             form.reset();
-           
+
             const userEmail = {
                email: user?.email,
             }
 
-            fetch('http://localhost:5000/jwt', {
+            fetch('https://cleaning-man-server.vercel.app/jwt', {
                method: 'POST',
                headers: {
                   'content-type': 'application/json'
@@ -38,15 +38,15 @@ const Login = () => {
                .then(res => res.json())
                .then(data => {
                   localStorage.setItem('jwt-token', data.token)
-                  navigate(from, {replace: true})
+                  navigate(from, { replace: true })
                })
-            .then(err => console.error(err))
+               .then(err => console.error(err))
          })
          .catch(err => {
             console.error(err);
          }
-         
-      )
+
+         )
    }
    return (
       <div className="hero my-10">

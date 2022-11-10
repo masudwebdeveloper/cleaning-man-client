@@ -9,7 +9,7 @@ const Reviews = () => {
    useTitle('My Reviews')
 
    useEffect(() => {
-      const url = `http://localhost:5000/reviews?email=${user?.email}`;
+      const url = `https://cleaning-man-server.vercel.app/reviews?email=${user?.email}`;
       fetch(url, {
          headers: {
             authorization: `Bearer ${localStorage.getItem('jwt-token')}`
@@ -22,7 +22,7 @@ const Reviews = () => {
             return res.json()
          })
          .then(data => {
-            data.sort((a,b)=> b.date - a.date)
+            data.sort((a, b) => b.date - a.date)
             setReviews(data)
          })
          .catch(err => {
@@ -54,7 +54,7 @@ const Reviews = () => {
                ></ReviewsItems>)
             }
          </div>
-         
+
       </div>
    );
 };

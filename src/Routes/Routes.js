@@ -9,12 +9,14 @@ import EditPage from "../components/Share/EditPage/EditPage";
 import Login from "../components/Share/Login/Login";
 import Review from "../components/Share/Review/Review";
 import SignUp from "../components/Share/SignUp/SignUp";
+import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
    {
       path: '/',
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
          {
             path: '/',
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
          {
             path: '/review/:id',
             element: <Review></Review>,
-            loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({ params }) => fetch(`https://cleaning-man-server.vercel.app/services/${params.id}`)
          },
          {
             path: '/reviews',
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
          {
             path: '/editpage/:id',
             element: <EditPage></EditPage>,
-            loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            loader: ({ params }) => fetch(`https://cleaning-man-server.vercel.app/reviews/${params.id}`)
          }
 
       ]
