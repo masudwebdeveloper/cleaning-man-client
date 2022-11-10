@@ -54,6 +54,7 @@ const Reviews = () => {
                ></ReviewsItems>)
             }
          </div>
+         
       </div>
    );
 };

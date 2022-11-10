@@ -5,6 +5,7 @@ import Reviews from "../components/Home/Reviews/Reviews";
 import Services from "../components/Home/Services/Services";
 import Main from "../components/Layout/Main";
 import Blogs from "../components/Others/Blogs/Blogs";
+import EditPage from "../components/Share/EditPage/EditPage";
 import Login from "../components/Share/Login/Login";
 import Review from "../components/Share/Review/Review";
 import SignUp from "../components/Share/SignUp/SignUp";
@@ -50,8 +51,14 @@ const router = createBrowserRouter([
          },
          {
             path: '/allreviews',
-            element: <AllReviews></AllReviews>
+            element: <PrivateRoute><AllReviews></AllReviews></PrivateRoute>
+         },
+         {
+            path: '/editpage/:id',
+            element: <EditPage></EditPage>,
+            loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
          }
+
       ]
    }
 ])

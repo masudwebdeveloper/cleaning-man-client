@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaEdit, FaStar, FaTrash } from 'react-icons/fa';
 import { TbDots } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const ReviewsItems = ({ review,reviews, setReviews }) => {
+const ReviewsItems = ({ review, reviews, setReviews }) => {
    const { _id, title, picture, clientName, rating, price, message, date } = review;
+
    const handleDelete = (id) => {
       const proceed = window.confirm('Are you sure want to delete?');
       if (proceed) {
@@ -23,7 +25,7 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
             })
             .catch(err => {
                console.error(err);
-               toast.error(err, {autoClose: 2000})
+               toast.error(err, { autoClose: 2000 })
             })
       }
    }
@@ -35,7 +37,7 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
             <div className="dropdown dropdown-end">
                <label tabIndex={0} className="btn btn-ghost m-1"><TbDots className='text-xl font-bold'></TbDots></label>
                <ul tabIndex={0} className="dropdown-content menu shadow bg-base-100 w-32">
-                  <button className='text-md flex btn btn-ghost'><FaEdit></FaEdit> -Edit</button>
+                  <Link to={`/editpage/${_id}`} htmlFor="my-modal-6" className='text-md flex btn btn-ghost'><FaEdit></FaEdit> -Edit</Link>
                   <button onClick={() => handleDelete(_id)} className='text-md flex btn btn-ghost'><FaTrash></FaTrash> -Delete</button>
                </ul>
             </div>
@@ -47,7 +49,6 @@ const ReviewsItems = ({ review,reviews, setReviews }) => {
                <h3 className='text-sm font-medium'>Rating: {rating} <FaStar className='inline mb-1 text-warning'></FaStar></h3>
                <h3 className='text-sm font-medium'>Price: {price}$</h3>
                <h3 className='text-sm font-medium'>message: {message}</h3>
-
             </div>
          </div>
       </div>
