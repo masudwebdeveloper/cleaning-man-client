@@ -27,7 +27,10 @@ const Header = () => {
 
                      {
                         user?.uid ?
-                           <li><Link to='/reviews'>My Reviews</Link></li>
+                           <>
+                              <li><Link to='/reviews'>My Reviews</Link></li>
+                              <li><Link onClick={handleLogout}>logOut</Link></li>
+                           </>
                            :
                            <li><Link to='/login'>Login</Link></li>
                      }
@@ -37,14 +40,14 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                <ul className="menu menu-horizontal p-0">
-                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/home'>Home</NavLink></li>
-                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/blogs'>Blogs</NavLink></li>
-                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/services'>Services</NavLink></li>
-                  <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/allreviews'>Reviews</NavLink></li>
+                  <li><NavLink className={({ isActive }) => isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/home'>Home</NavLink></li>
+                  <li><NavLink className={({ isActive }) => isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/blogs'>Blogs</NavLink></li>
+                  <li><NavLink className={({ isActive }) => isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/services'>Services</NavLink></li>
+                  <li><NavLink className={({ isActive }) => isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/allreviews'>Reviews</NavLink></li>
                   {
                      user?.uid ?
                         <>
-                           <li><NavLink className={({isActive})=> isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/reviews'>My Reviews</NavLink></li>
+                           <li><NavLink className={({ isActive }) => isActive ? 'text-xl font-semibold mr-5  text-blue-500 bg-slate-100' : 'text-xl font-semibold mr-5'} to='/reviews'>My Reviews</NavLink></li>
                         </>
 
                         :
@@ -52,7 +55,7 @@ const Header = () => {
                   }
                </ul>
             </div>
-            <div className="navbar-end dropdown-end dropdown-hover lg:flex mr-10">
+            <div className="navbar-end hidden lg:flex dropdown-end dropdown-hover lg:mr-10">
                <ul className="menu menu-horizontal p-0">
                   {
                      user?.uid ? <></>
@@ -68,7 +71,7 @@ const Header = () => {
                               <FaUserCircle className='w-full text-4xl'></FaUserCircle>
                         }
                      </div>
-                     <ul className="p-2 mr-5 z-50 bg-slate-400 text-slate-100 text-center">
+                     <ul className="p-2 z-50 bg-slate-400 text-slate-100 text-center">
                         {
                            user?.uid ? <li><a href='/'>{user?.displayName}</a></li>
                               :

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useTitle from '../../../hooks/useTitle';
 
@@ -9,6 +9,8 @@ const EditPage = () => {
    const [user, setUser] = useState(storedUser);
    const navigate = useNavigate();
    useTitle('Edit')
+
+   const doot = 'jfjf'
 
 
    const handleUpdate = (event) => {
@@ -20,7 +22,7 @@ const EditPage = () => {
             'content-type': 'application/json'
          },
          body: JSON.stringify(user)
-
+         
       })
          .then(res => res.json())
          .then(data => {
@@ -33,6 +35,7 @@ const EditPage = () => {
          .catch(err => {
             console.error(err);
             toast.error(err, { autoClose: 2000 })
+            console.log("🚀 ~ file: EditPage.js ~ line 38 ~ handleUpdate ~ err", err)
          })
    }
 

@@ -5,9 +5,9 @@ const Works = () => {
    return (
       <div className='container mx-auto my-20'>
          <div className='text-center mb-10' data-aos="zoom-out" data-aos-duration="2000">
-            <h1 className='text-5xl text-gray-500 font-semibold mb-8'>How It Works</h1>
+            <h1 className='text-3xl lg:text-5xl text-gray-500 font-semibold mb-8'>How It Works</h1>
             <div className='divider border-1 mb-8 w-2/5 mx-auto'><GoPrimitiveDot className='text-gray-500'></GoPrimitiveDot></div>
-            <p className='text-xl font-medium text-gray-500'>Taking the stress out of any aspect of cleaning is what we specialise in. We will come to your premises and offer a free quote, so you know exactly what you'll be spending</p>
+            <p className='text-md lg:text-xl font-normal lg:font-medium text-gray-500'>Taking the stress out of any aspect of cleaning is what we specialise in. We will come to your premises and offer a free quote, so you know exactly what you'll be spending</p>
          </div>
          <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
             <div className='text-center' data-aos="fade-down-right" data-aos-duration="2000">

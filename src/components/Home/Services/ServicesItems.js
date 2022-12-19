@@ -8,11 +8,10 @@ const ServicesItems = ({ service }) => {
    const [active, setActive] = useState(true);
    const { _id, title, picture, pirce, description, rating } = service;
    return (
-      <div className="card w-96 bg-base-100 shadow-xl">
-
+      <div className="card bg-base-100 shadow-xl">
          <PhotoProvider>
             <PhotoView src={picture}>
-               <figure className="px-10 pt-10">
+               <figure className="px-3 lg:px-10 pt-10">
                   <img src={picture} alt="Shoes" className="rounded-xl hover:scale-105 duration-500" />
                </figure>
             </PhotoView>
@@ -22,10 +21,10 @@ const ServicesItems = ({ service }) => {
             <p className='mt-1 font-semibold'>Rating: {rating} <FaStar className='text-warning inline'></FaStar></p>
          </div>
          <div className="card-body items-center text-center">
-            <h2 className="card-title text-gray-500 font-bold">{title}</h2>
+            <h2 className="card-title text-gray-500 font-semibold">{title}</h2>
             {
-               active ? <p>{description.length > 100 ? <> {description.slice(0, 100) + "..."} <button className='font-semibold' onClick={() => setActive(!active)}>Read more</button></> : description}</p>
-                  : <p>{description} <button className='font-semibold' onClick={() => setActive(!active)}> Read Less </button></p>
+               active ? <p className='text-justify'>{description.length > 100 ? <> {description.slice(0, 100) + "..."} <button className='font-semibold' onClick={() => setActive(!active)}>Read more</button></> : description}</p>
+                  : <p className='text-justify'>{description} <button className='font-semibold' onClick={() => setActive(!active)}> Read Less </button></p>
             }
 
             <div className="card-actions">

@@ -1,8 +1,10 @@
 import React from 'react';
-import { FaClock, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaClock, FaLinkedin, } from 'react-icons/fa';
 import { TiLocation, TiPhone } from 'react-icons/ti'
 import { GrContact } from 'react-icons/gr'
 import {MdCleaningServices} from 'react-icons/md'
+
+
 
 const Footer = () => {
    return (
