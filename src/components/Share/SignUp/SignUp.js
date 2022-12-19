@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import image1 from '../../../assets/images/signup.jpg'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -9,6 +9,11 @@ import useTitle from '../../../hooks/useTitle';
 const SignUp = () => {
    const { createUser } = useContext(AuthContext);
    useTitle('SignUp')
+   const location = useLocation();
+   const navigate = useNavigate();
+
+   const from = location.state?.from?.pathname || '/';
+
    const handleSignUp = event => {
       event.preventDefault();
       const form = event.target;
@@ -20,6 +25,9 @@ const SignUp = () => {
          .then(result => {
             const user = result.user;
             toast.success('Account Create is successfull', {autoClose: 2000})
+            if(user){
+               navigate(from, {replace: true})
+            }
             form.reset();
          })
          .catch(err => {

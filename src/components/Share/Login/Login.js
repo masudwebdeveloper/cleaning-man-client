@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image1 from '../../../assets/images/login.webp'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
    const { login } = useContext(AuthContext);
+   const [error, setError] = useState('');
    const location = useLocation();
    const navigate = useNavigate();
    useTitle('Login')
@@ -15,10 +16,11 @@ const Login = () => {
 
    const handleSignIn = (event) => {
       event.preventDefault();
+      setError('');
       const form = event.target;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(email, password);;
+      console.log(email, password);
       login(email, password)
          .then(result => {
             const user = result.user
@@ -40,9 +42,12 @@ const Login = () => {
                   localStorage.setItem('jwt-token', data.token)
                   navigate(from, { replace: true })
                })
-               .then(err => console.error(err))
+               .then(err => {
+                  // setError(err.message)
+                  console.error(err)})
          })
          .catch(err => {
+            setError(err.message)
             console.error(err);
          }
 
@@ -72,6 +77,7 @@ const Login = () => {
                         <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                      </label>
                   </div>
+                  <p className='text-red-500'>{error}</p>
                   <div className="form-control mt-6">
                      <button className="btn btn-primary">Login</button>
                   </div>
