@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import image1 from '../../../assets/images/signup.jpg'
@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import useTitle from '../../../hooks/useTitle';
 
 const SignUp = () => {
+   const [error, setError] = useState('');
    const { createUser } = useContext(AuthContext);
    useTitle('SignUp')
    const location = useLocation();
@@ -15,7 +16,9 @@ const SignUp = () => {
    const from = location.state?.from?.pathname || '/';
 
    const handleSignUp = event => {
+      setError('');
       event.preventDefault();
+
       const form = event.target;
       const name = form.name.value;
       const email = form.email.value;
@@ -32,6 +35,7 @@ const SignUp = () => {
          })
          .catch(err => {
             console.error(err)
+            setError(err.message);
             toast.error(err, {autoClose: 2000})
          })
    }
@@ -66,6 +70,9 @@ const SignUp = () => {
                   <div className="form-control mt-6">
                      <button className="btn btn-primary">SignUp</button>
                   </div>
+                  {
+                     error && <p className='text-red-500'>{error}</p>
+                  }
                </form>
                <p className='text-center'>Already you have an Account <Link className='text-orange-600' to='/login'>Login</Link></p>
                <SocialLogin></SocialLogin>
